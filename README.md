@@ -5,8 +5,8 @@
 [![Latest Unstable Version](https://poser.pugx.org/chewei05/crud-generator-template/v/unstable)](https://packagist.org/packages/chewei05/crud-generator-template)
 [![License](https://poser.pugx.org/chewei05/crud-generator-template/license)](https://packagist.org/packages/chewei05/crud-generator-template)
 
-    Traditional Chinese (zh-TW) Language for Laravel-AdminLTE with Laravel 5
-    Laravel-AdminLTE 在 Laravel 5 的正體中文(繁體中文)語系檔.
+    Traditional Chinese (zh-TW) Templates for Laravel-AdminLTE with Laravel 5.
+    crud-generator 在 Laravel 5 的正體中文(繁體中文)樣板檔.
 
 ## Requirements
     appzcoder/crud-generator: ^v2.0.0
@@ -16,9 +16,18 @@ Open the root directory of your Laravel project in terminal(CLI), and follow the
 
 1. Install [**appzcoder/crud-generator**](https://github.com/appzcoder/crud-generator) first.
     ```
-    composer require jeroennoten/laravel-adminlte
+    composer require appzcoder/crud-generator
     ```
-2. Install this package **crud-generator-template**
+2. Finish all install steps of [**appzcoder/crud-generator**](https://github.com/appzcoder/crud-generator).
+3. Published *crud-generator* package's assets.
+    ```
+    php artisan vendor:publish --provider="Appzcoder\CrudGenerator\CrudGeneratorServiceProvider"
+    ```
+4. Turn on custom_template support on **config/crudgenerator.php**
+    ```
+    'custom_template' => true,
+    ```
+5. Install this package **crud-generator-template**
     ```
     composer require chewei05/crud-generator-template
     ```
