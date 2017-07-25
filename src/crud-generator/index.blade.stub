@@ -1,0 +1,73 @@
+@extends('adminlte::page')
+
+@section('title', config('app.name').' - %%crudNameCap%%')
+
+@section('content_header')
+    <h1>%%crudNameCap%%</h1>
+@stop
+
+@section('content')
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">%%crudNameCap%%</div>
+                    <div class="panel-body">
+                        <a href="{{ url('/%%routeGroup%%%%viewName%%/create') }}" class="btn btn-success btn-sm" title="新增 %%modelName%%">
+                            <i class="fa fa-plus" aria-hidden="true"></i> 新增
+                        </a>
+
+                        {!! Form::open(['method' => 'GET', 'url' => '/%%routeGroup%%%%viewName%%', 'class' => 'navbar-form navbar-right', 'role' => 'search'])  !!}
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="search" placeholder="搜尋...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                        </div>
+                        {!! Form::close() !!}
+
+                        <br/>
+                        <br/>
+                        <div class="table-responsive">
+                            <table class="table table-borderless">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>%%formHeadingHtml%%<th>動作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($%%crudName%% as $item)
+                                    <tr>
+                                        <td>{{ $item->id }}</td>
+                                        %%formBodyHtml%%
+                                        <td>
+                                            <a href="{{ url('/%%routeGroup%%%%viewName%%/' . $item->%%primaryKey%%) }}" title="查看 %%modelName%% 詳細資料"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> 檢視</button></a>
+                                            <a href="{{ url('/%%routeGroup%%%%viewName%%/' . $item->%%primaryKey%% . '/edit') }}" title="編輯 %%modelName%%"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 編輯</button></a>
+                                            {!! Form::open([
+                                                'method'=>'DELETE',
+                                                'url' => ['/%%routeGroup%%%%viewName%%', $item->%%primaryKey%%],
+                                                'style' => 'display:inline'
+                                            ]) !!}
+                                                {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i> 刪除', array(
+                                                        'type' => 'submit',
+                                                        'class' => 'btn btn-danger btn-xs',
+                                                        'title' => '刪除 %%modelName%%',
+                                                        'onclick'=>'return confirm("碓認刪除?")'
+                                                )) !!}
+                                            {!! Form::close() !!}
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                            <div class="pagination-wrapper"> {!! $%%crudName%%->appends(['search' => Request::get('search')])->render() !!} </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

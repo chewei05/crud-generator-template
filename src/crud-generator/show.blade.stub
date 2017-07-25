@@ -1,0 +1,50 @@
+@extends('adminlte::page')
+
+@section('title', config('app.name').' - %%modelName%%')
+
+@section('content_header')
+    <h1>%%modelName%%</h1>
+@stop
+
+@section('content')
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">%%modelName%% {{ $%%crudNameSingular%%->%%primaryKey%% }}</div>
+                    <div class="panel-body">
+
+                        <a href="{{ url('/%%routeGroup%%%%viewName%%') }}" title="返回"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> 返回</button></a>
+                        <a href="{{ url('/%%routeGroup%%%%viewName%%/' . $%%crudNameSingular%%->%%primaryKey%% . '/edit') }}" title="編輯 %%modelName%%"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 編輯</button></a>
+                        {!! Form::open([
+                            'method'=>'DELETE',
+                            'url' => ['%%routeGroup%%%%crudName%%', $%%crudNameSingular%%->%%primaryKey%%],
+                            'style' => 'display:inline'
+                        ]) !!}
+                            {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i> 刪除', array(
+                                    'type' => 'submit',
+                                    'class' => 'btn btn-danger btn-xs',
+                                    'title' => '刪除 %%modelName%%',
+                                    'onclick'=>'return confirm("確認刪除?")'
+                            ))!!}
+                        {!! Form::close() !!}
+                        <br/>
+                        <br/>
+
+                        <div class="table-responsive">
+                            <table class="table table-borderless">
+                                <tbody>
+                                    <tr>
+                                        <th>ID</th><td>{{ $%%crudNameSingular%%->%%primaryKey%% }}</td>
+                                    </tr>
+                                    %%formBodyHtmlForShowView%%
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

@@ -1,0 +1,6 @@
+<div class="checkbox">
+    <label>{!! Form::radio('%1$s', '1') !!} 是</label>
+</div>
+<div class="checkbox">
+    <label>{!! Form::radio('%1$s', '0', true) !!} 否</label>
+</div>
