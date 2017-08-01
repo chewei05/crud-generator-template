@@ -5,7 +5,7 @@
 [![Latest Unstable Version](https://poser.pugx.org/chewei05/crud-generator-template/v/unstable)](https://packagist.org/packages/chewei05/crud-generator-template)
 [![License](https://poser.pugx.org/chewei05/crud-generator-template/license)](https://packagist.org/packages/chewei05/crud-generator-template)
 
-    Traditional Chinese (zh-TW) Templates for Laravel-AdminLTE with Laravel 5.
+    Traditional Chinese (zh-TW) Templates for CRUD-generator with Laravel 5.
     crud-generator 在 Laravel 5 的正體中文(繁體中文)樣板檔.
 
 ## Requirements
@@ -52,6 +52,6 @@ Open the root directory of your Laravel project in terminal(CLI), and follow the
     ```
 3. Publish vendor files of this package.
     ```
-    php artisan vendor:publish --provider="CheweiHu\CRUDGeneratorTemplate\CRUDGeneratorTemplateServiceProvider"
+    php artisan vendor:publish --provider="CheweiHu\CRUDGeneratorTemplate\CRUDGeneratorTemplateServiceProvider" --force
     ```
 4. Done.
