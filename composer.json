@@ -1,9 +1,9 @@
 {
     "name": "chewei05/crud-generator-template",
     "description": "Traditional Chinese (zh-TW) Templates for crud-generator with Laravel 5.",
-	"version": "0.0.2",
+	"version": "0.0.3",
     "require": {
-        "appzcoder/crud-generator": "^v2.0.0"
+        "appzcoder/crud-generator": ">=v2.0.0"
     },
     "license": "MIT",
     "authors": [
